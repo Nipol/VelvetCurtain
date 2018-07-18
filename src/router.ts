@@ -1,21 +1,38 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home.vue';
-import About from './views/About.vue';
+
+import Photos from '@/views/Photos.vue';
+import Stared from '@/views/Stared.vue';
+import Upload from '@/views/Upload.vue';
+import Setting from '@/views/Setting.vue';
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: Home,
+      name: 'photos',
+      path: '/photos',
+      component: Photos,
     },
     {
-      path: '/about',
-      name: 'about',
-      component: About,
+      name: 'stared',
+      path: '/stared',
+      component: Stared,
     },
+    {
+      name: 'upload',
+      path: '/upload',
+      component: Upload,
+    },
+    {
+      name: 'setting',
+      path: '/setting',
+      component: Setting,
+    },
+    { path: '*', redirect: '/photos' },
   ],
+  mode: 'history',
+  linkActiveClass: 'active',
+  linkExactActiveClass: 'exact-active',
 });

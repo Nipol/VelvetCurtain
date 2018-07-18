@@ -1,0 +1,12 @@
+@import '_font.scss';
+@import '_page.scss';
+@import '_button.scss';
+@import '_typhography.scss';
+
+* {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+*:focus {
+	outline: none;
+}
