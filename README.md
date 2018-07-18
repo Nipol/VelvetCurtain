@@ -4,12 +4,9 @@ Velvet Curtain은, 사진 파일을 공유하기 위해서 특정 서비스에 �
 
 ## Try
 ```sh
-$ ipfs daemon
+$ yarn instatll
 
-$ yarn install
-
-$ yarn dev
-$ yarn electron:dev
+$ yarn serve
 ```
 
 ## Structure
@@ -30,10 +27,8 @@ User's
 ```
 
 ## TODO
- - [ ] go-ipfs integration
  - [ ] Multi Platform Electron build
- - [ ] Remove js-ipfs-api
- - [ ] Photo Album
+ - [x] Photo Album
  - [ ] Multi File Upload
  - [ ] maybe... muon?
 
