@@ -1,11 +1,25 @@
 import IPFS from 'ipfs';
 
-const ipfs = new IPFS({
-  repo: 'VelvetCurtain',
-  EXPERIMENTAL: {
-    pubsub: true,
-  },
-});
+let ipfs: any;
+
+export const StartIPFS = async (): Promise<any> => {
+  return new Promise<any>((resolve) => {
+    if (ipfs === undefined) {
+      ipfs = new IPFS({
+        repo: 'VelvetCurtain',
+        EXPERIMENTAL: {
+          pubsub: true,
+        },
+      });
+      
+      ipfs.once('ready', () => {
+        resolve(true);
+      });
+    } else {
+      resolve(true);
+    }
+  });
+};
 
 // const ipfs = ipfsAPI('localhost', '5001');
 export const InitializeAlbum = async (): Promise<any> => {

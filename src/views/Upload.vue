@@ -17,7 +17,9 @@ export default class Upload extends Vue {
   public filename = '';
   public filehash = '';
   public imghash = '';
+
   @Action('AddPhotoToAlbum', { namespace: 'album' }) private AddPhotoToAlbum: any;
+  
   public handleFileUpload(e: FileList) {
     const file = e[0];
     const reader: FileReader = new FileReader();
@@ -27,6 +29,7 @@ export default class Upload extends Vue {
       this.filename = `vc-${Math.random()}-${file.name}`;
     };
   }
+  
   public submit() {
     this.AddPhotoToAlbum({filename: this.filename, file: this.file});
   }

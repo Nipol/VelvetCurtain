@@ -4,7 +4,7 @@ import { getFileList, PinAdd, AddPhotoToAlbum, InitializeAlbum, InitializeStared
 
 export const mutations: MutationTree<AlbumState> = {
   async initializeAlbum(state) {
-    await InitializeAlbum();
+    await InitializeAlbum(); 
   },
   async initializeStared(state) {
     await InitializeStared();

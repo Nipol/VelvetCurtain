@@ -10,6 +10,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { Getter, Action } from 'vuex-class';
 import PhotoPanel from '@/components/PhotoPanel.vue';
+import { StartIPFS } from '@/utils/getJSIPFS';
 
 @Component({
   components: {
@@ -21,10 +22,15 @@ export default class Photos extends Vue {
   @Action('initializeAlbum', { namespace: 'album' }) public initializeAlbum: any;
   @Action('initializeStared', { namespace: 'album' }) public initializeStared: any;
   @Action('loadPhotos', { namespace: 'album' }) public loadPhotos: any;
+
   public mounted() {
-    this.initializeAlbum();
-    this.initializeStared();
-    this.loadPhotos();
+    StartIPFS().then(() => {
+      this.initializeAlbum();
+      this.initializeStared();
+      this.loadPhotos();
+    }).catch(() => {
+      alert('error!');
+    });
   }
 }
 </script>
